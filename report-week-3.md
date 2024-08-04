@@ -43,6 +43,7 @@
       - Cutting-edge performance thanks to Meta's investment in training these models on a wide and varied dataset."
     }
     ```
+
     
 - **Detailing of Capabilities**:
   - **OpenAI**: Offers a comprehensive overview of the Gemini model, focusing on its multimodal capabilities and its potential impact in healthcare applications. This broad perspective underscores the versatility and depth of the Gemini model, suggesting its utility in enhancing Google's products with more adaptive and context-aware interactions.
