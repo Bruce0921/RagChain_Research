@@ -72,10 +72,4 @@
   - Specialization: Best suited for time-series data, less effective for general-purpose use.
   - Complex Queries: Time-series queries may require specialized knowledge.
 
-### Integration Strategies
-- **Direct Querying**: Use SQL or NoSQL queries directly from the application to the database.
-- **APIs**: Access databases via RESTful APIs or GraphQL for flexibility and ease of integration.
-- **Adapters**: Utilize adapters or ORM (Object-Relational Mapping) libraries to interface between LLMs and databases.
-- **Data Sync**: Synchronize data from databases to vector stores or other intermediate layers for more efficient retrieval by LLMs.
-
 
