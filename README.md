@@ -13,6 +13,6 @@ Playing with LLMs
 print("Hello, world")
 ```
 # More links
-[Week1 Report 1](report-1-week-1.html)
+[Week1 Report 1](report-week-1.html)
 
-[Week3 Report 2](report-2-week-3.html)
+[Week3 Report 2](report-week-3.html)
