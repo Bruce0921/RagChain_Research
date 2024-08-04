@@ -30,18 +30,16 @@
     ```json
     {
       "question": "What are the key points about Gemini and LLAMA models?",
-      "result": "**Gemini Key Points:**\n
-      - Complex multimodal large-scale language model capable of understanding and integrating a variety of data types, including text, images, audio, and video.\n
-      - Designed to enhance Google's core products (such as search and advertising) by providing deeper, more context-aware interactions.\n
-      - Has the longest context window of any large AI model, which allows it to remember and process large amounts of information over longer interactions, significantly improving its problem-solving capabilities.\n
-      - Outstanding performance in multimodal tasks sets a new benchmark in AI, pushing the boundaries of what AI systems can understand and achieve.\n\n
-      **LLAMA Key Points:**\n
-      - Large-scale language model publicly accessible for developers, researchers, and enterprises to freely use and adapt.\n
-      - Designed to democratize AI technology and promote broad accessibility and versatility.\n
-      - Handles a variety of complex tasks such as language understanding, translation, and content generation.\n
-      - Integrated into several consumer applications, enhancing user interaction with smart devices and social platforms.\n
-      - Cutting-edge performance thanks to Meta's investment in training these models on a wide and varied dataset."
+      "result": "**Gemini Key Points:**\n- Complex multimodal large-scale language model capable of understanding and integrating a variety of data types,
+      including text, images, audio, and video.\n-Designed to enhance Google's core products (such as search and advertising) by providing deeper,
+      more context-aware interactions.\n- Has the longest context window of any large AI model, which allows it to remember and process large amounts of information over longer interactions,          
+      significantly improving its problem-solving capabilities.\n- Outstanding performance in multimodal tasks sets a new benchmark in AI, pushing the boundaries of what AI systems can understand and   achieve.
+    
+      **LLAMA Key Points:**\n- Large-scale language model publicly accessible for developers, researchers, and enterprises to freely use and adapt.\n- Designed to democratize AI technology and promoted
+     broad accessibility and versatility.\n- Handles a variety of complex tasks such as language understanding, translation, and content generation.\n- Integrated into several consumer applications,
+     enhancing user interaction with smart devices and social platforms.\n- Cutting-edge performance thanks to Meta's investment in training these models on a wide and varied dataset."
     }
+    ```
     ```
 
     
