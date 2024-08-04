@@ -11,16 +11,31 @@
     ```json
     {
       "question": "What are the key points about Gemini and LLAMA models?",
-      "result": "Gemini is a complex multimodal large-scale language model developed by Google. It is capable of understanding and integrating various data types, such as text, images, audio, and video. Gemini enhances Google's core products by providing more context-aware interactions and can undertake tasks that were previously challenging for AI. Its advanced analytics capabilities could potentially transform diagnosis and treatment in healthcare. Gemini represents the cutting edge of AI technology with several groundbreaking innovations.\n\nLLAMA, on the other hand, is a publicly accessible large-scale language model launched by Meta. It aims to democratize AI technology and promote broad accessibility and versatility. It is designed to handle a variety of complex tasks such as language understanding, translation, and content generation. LLAMA has been integrated into several consumer applications, enhancing user interaction with smart devices and social platforms. Code LLAMA is a specific version developed to meet the needs of specialized areas such as software development. LLAMA is one of the few open-source large models, which makes it easier to study, access, and apply to different fields with good scalability. Both models have sparked discussions about potential privacy breaches due to the use of personally identifiable information in their training datasets."
+      "result": "Gemini is a complex multimodal large-scale language model developed by Google. 
+      It is capable of understanding and integrating various data types, such as text, images, audio, and video. 
+      Gemini enhances Google's core products by providing more context-aware interactions and can undertake tasks that were previously challenging for AI. 
+      Its advanced analytics capabilities could potentially transform diagnosis and treatment in healthcare. 
+      Gemini represents the cutting edge of AI technology with several groundbreaking innovations.
+
+      LLAMA, on the other hand, is a publicly accessible large-scale language model launched by Meta. 
+      It aims to democratize AI technology and promote broad accessibility and versatility. 
+      It is designed to handle a variety of complex tasks such as language understanding, translation, and content generation. 
+      LLAMA has been integrated into several consumer applications, enhancing user interaction with smart devices and social platforms. 
+      Code LLAMA is a specific version developed to meet the needs of specialized areas such as software development. 
+      LLAMA is one of the few open-source large models, which makes it easier to study, access, and apply to different fields with good scalability. 
+      Both models have sparked discussions about potential privacy breaches due to the use of personally identifiable information in their training datasets."
     }
     ```
   - **Gemini Output**:
     ```json
     {
       "question": "What are the key points about Gemini and LLAMA models?",
-      "result": "**Gemini Key Points:**\n- Complex multimodal large-scale language model capable of understanding and integrating a variety of data types, including text, images, audio, and video.\n- Designed to enhance Google's core products (such as search and advertising) by providing deeper, more context-aware interactions.\n- Has the longest context window of any large AI model, which allows it to remember and process large amounts of information over longer interactions, significantly improving its problem-solving capabilities.\n- Outstanding performance in multimodal tasks sets a new benchmark in AI, pushing the boundaries of what AI systems can understand and achieve.\n\n**LLAMA Key Points:**\n- Large-scale language model publicly accessible for developers, researchers, and enterprises to freely use and adapt.\n- Designed to democratize AI technology and promote broad accessibility and versatility.\n- Handles a variety of complex tasks such as language understanding, translation, and content generation.\n- Integrated into several consumer applications, enhancing user interaction with smart devices and social platforms.\n- Cutting-edge performance thanks to Meta's investment in training these models on a wide and varied dataset."
+      "result": "**Gemini Key Points:**\n- Complex multimodal large-scale language model capable of understanding and integrating a variety of data types, including text, images, audio, and video.\n- Designed to enhance Google's core products (such as search and advertising) by providing deeper, more context-aware interactions.\n- Has the longest context window of any large AI model, which allows it to remember and process large amounts of information over longer interactions, significantly improving its problem-solving capabilities.\n- Outstanding performance in multimodal tasks sets a new benchmark in AI, pushing the boundaries of what AI systems can understand and achieve.
+
+      **LLAMA Key Points:**\n- Large-scale language model publicly accessible for developers, researchers, and enterprises to freely use and adapt.\n- Designed to democratize AI technology and promote broad accessibility and versatility.\n- Handles a variety of complex tasks such as language understanding, translation, and content generation.\n- Integrated into several consumer applications, enhancing user interaction with smart devices and social platforms.\n- Cutting-edge performance thanks to Meta's investment in training these models on a wide and varied dataset."
     }
     ```
+    
 - **Detailing of Capabilities**:
   - **OpenAI**: Offers a comprehensive overview of the Gemini model, focusing on its multimodal capabilities and its potential impact in healthcare applications. This broad perspective underscores the versatility and depth of the Gemini model, suggesting its utility in enhancing Google's products with more adaptive and context-aware interactions.
   - **Gemini**: Provides a more technically detailed description, particularly noting the model's long context window which allows it to handle and remember extensive data over prolonged interactions. This capability is crucial for complex problem-solving scenarios where maintaining contextual continuity is key.
