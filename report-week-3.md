@@ -40,7 +40,6 @@
      enhancing user interaction with smart devices and social platforms.\n- Cutting-edge performance thanks to Meta's investment in training these models on a wide and varied dataset."
     }
     ```
-    ```
 
     
 - **Detailing of Capabilities**:
