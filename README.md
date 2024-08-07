@@ -18,3 +18,5 @@ print("Hello, world")
 [Week3 Report 2](report-week-3.md)
 
 [Week4 Report 3](report-week-4.md)
+
+[Week4 Report 4](report-API.md)
