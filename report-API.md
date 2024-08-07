@@ -2,18 +2,51 @@
 
 ## 1. What is an API?
 
-An API (Application Programming Interface) is a set of rules and protocols that allows different software applications to communicate with each other. APIs enable the integration of various systems, making it easier for developers to use specific functionalities of an application or service without knowing its internal workings.
+- An API (Application Programming Interface) is a set of rules and protocols that allows different software applications to communicate with each other. APIs enable the integration of various systems, making it easier for developers to use specific functionalities of an application or service without knowing its internal workings.
 
 ## 2. Key Components of an API
 
+General Diagram of How API Works:
+```plaintext
+
++------------------+    +--------------------+    +------------------+
+|                  |    |                    |    |                  |
+|      Log in      |--->|     Front End      |--->|    Back End      |
+|                  | ^  |                    |  ^ |                  |
++------------------+ |  +--------------------+  | +------------------+
+                     |        passing data      |
+                     UI  --------------------> API
+
+```
+
+- In most ot the cases, API have many pieces that we can connect to. You might get many part of one API.
+
+For example:
+```plaintext
+                         +------------------+
+                         |                  |
+                         |      Part 2      |
+                         |                  |
+                         +------------------+
+                                  |
++------------------+    +--------------------+    +------------------+
+|     (Part 1)     |    |                    |    |                  |
+|      Log in      |--->|     Back  End      |<---|    Feature 1     |
+|                  |    |                    |    |                  |
++------------------+    +--------------------+    +------------------+
+
+                  All these parts are called Endpoints.
+
+```
 1. **Endpoints**: Specific URLs where the API can be accessed. Each endpoint corresponds to a particular function or data resource.
 2. **Requests**: The calls made by a client to the API, asking for data or services. Requests usually contain HTTP methods like GET, POST, PUT, DELETE.
 3. **Responses**: The data or message returned by the API after processing a request. Responses often include a status code indicating the success or failure of the request.
 4. **Authentication**: Mechanisms to ensure that only authorized clients can access the API.
 5. **Rate Limiting**: Controls to limit the number of requests a client can make to the API in a given time period.
 
-
+More Detailed Diagram of How API Works:
 ```plaintext
+
 +---------+             +------------+             +------------+
 |         |  HTTP       |            |  Process    |            |
 |  Client <------------->     API    <------------->   Server   |
@@ -22,9 +55,10 @@ An API (Application Programming Interface) is a set of rules and protocols that 
                        /               \
                       /                 \
               +--------+             +--------+
-              | Auth   |             | Rate    |
-              | Layer  |             | Limit   |
+              | Auth   |             | Rate   |
+              | Layer  |             | Limit  |
               +--------+             +--------+
+
 ```
 1. Client sends an HTTP request to the API.
 2. API processes the request.
@@ -33,14 +67,19 @@ An API (Application Programming Interface) is a set of rules and protocols that 
 5. Server processes the request and sends back a response.
    
 ```plaintext
-+------------------+    +--------------------+    +------------------+
-|                  |    |                    |    |                  |
-|  Client Machine  +--->+     FastAPI App    +--->+   LangServe      |
-|                  |    |                    |    |                  |
-+------------------+    +--------------------+    +------------------+
-```
 
-## 3. Integration with FastAPI
++------------------+    +--------------------+    +------------------+
+|                  |    |                    |    |                  |
+|  Client Machine  |--->|    FastAPI App     |--->|   LangServe      |
+|                  |    |                    |    |                  |
++------------------+    +--------------------+    +------------------+
+
+```
+Usually, API are come with special API keys and documentations for security reasons and also good for developers to manage their calls.
+However, such API operations might sound like a lots of work.
+But we could use tools and platforms such as zapier, FastAPI.
+
+## 3. Report on FastAPI
 
 ### Introduction to FastAPI
 
