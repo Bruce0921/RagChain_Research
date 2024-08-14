@@ -2,7 +2,7 @@
 
 ## **1. Introduction**
 
-This report explores the integration of the Google Calendar API with a chatbot that could be used in the medical industry. The aim is to streamline the management of medical appointments through natural language interactions, allowing for functionalities such as booking appointments, setting reminders, and managing follow-up visits. This report will delve into the exact steps required to work with the Google Calendar API, with a particular focus on the process of integration, while maintaining a flexible approach towards the application format, whether it ends up as a web app or another form.
+This report explores the integration of the Google Calendar API with a chatbot. This report will delve into the exact steps required to work with the Google Calendar API, with a particular focus on the process of integration, while maintaining a flexible approach towards the application format, whether it ends up as a web app or another form.
 
 ## **2. Prerequisites**
 
@@ -54,37 +54,98 @@ In order to authenticate and authorize access to the Google Calendar API, the OA
 1. **Installing Necessary Libraries**:
    - The required Python libraries are installed using pip:
      ```bash
-     pip install google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client
+     pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib
      ```
 2. **Handling the OAuth Flow**:
    - The following code illustrates the initialization and handling of the OAuth flow:
      ```python
-     from google_auth_oauthlib.flow import InstalledAppFlow
-     from google.auth.transport.requests import Request
-     import os
-     import pickle
+    import datetime
+    import os.path
 
-     SCOPES = ['https://www.googleapis.com/auth/calendar']
+    from google.auth.transport.requests import Request
+    from google.oauth2.credentials import Credentials
+    from google_auth_oauthlib.flow import InstalledAppFlow
+    from googleapiclient.discovery import build
+    from googleapiclient.errors import HttpError
 
-     def authenticate_google():
-         creds = None
-         if os.path.exists('token.pickle'):
-             with open('token.pickle', 'rb') as token:
-                 creds = pickle.load(token)
+    # If modifying these scopes, delete the file token.json.
+    SCOPES = ["https://www.googleapis.com/auth/calendar.readonly"]
 
-         if not creds or not creds.valid:
-             if creds and creds.expired and creds.refresh_token:
-                 creds.refresh(Request())
-             else:
-                 flow = InstalledAppFlow.from_client_secrets_file('path/to/credentials.json', SCOPES)
-                 creds = flow.run_local_server(port=0)
 
-             with open('token.pickle', 'wb') as token:
-                 pickle.dump(creds, token)
+    def main():
+    """Shows basic usage of the Google Calendar API.
+    Prints the start and name of the next 10 events on the user's calendar.
+    """
+    creds = None
+    # The file token.json stores the user's access and refresh tokens, and is
+    # created automatically when the authorization flow completes for the first
+    # time.
+    if os.path.exists("token.json"):
+        creds = Credentials.from_authorized_user_file("token.json", SCOPES)
+    # If there are no (valid) credentials available, let the user log in.
+    if not creds or not creds.valid:
+        if creds and creds.expired and creds.refresh_token:
+        creds.refresh(Request())
+        else:
+        flow = InstalledAppFlow.from_client_secrets_file(
+            "credentials.json", SCOPES
+        )
+        creds = flow.run_local_server(port=0)
+        # Save the credentials for the next run
+        with open("token.json", "w") as token:
+        token.write(creds.to_json())
 
-         return creds
+    try:
+        service = build("calendar", "v3", credentials=creds)
+
+        # Call the Calendar API
+        now = datetime.datetime.utcnow().isoformat() + "Z"  # 'Z' indicates UTC time
+        print("Getting the upcoming 10 events")
+        events_result = (
+            service.events()
+            .list(
+                calendarId="primary",
+                timeMin=now,
+                maxResults=10,
+                singleEvents=True,
+                orderBy="startTime",
+            )
+            .execute()
+        )
+        events = events_result.get("items", [])
+
+        if not events:
+        print("No upcoming events found.")
+        return
+
+        # Prints the start and name of the next 10 events
+        for event in events:
+        start = event["start"].get("dateTime", event["start"].get("date"))
+        print(start, event["summary"])
+
+    except HttpError as error:
+        print(f"An error occurred: {error}")
+
+
+    if __name__ == "__main__":
+    main()
      ```
-   - This code handles the OAuth process by first checking if a valid token exists. If not, it initiates the OAuth flow, prompting the user to authorize the application. Upon success, the tokens are stored securely for future use.
+   - Configure the sample
+    Above is an example that you could put in your working directory, create a file named quickstart.py.
+    Include the following code in quickstart.py:
+
+   - Run the sample
+    In your working directory, build and run the sample:
+
+    ```bash
+    python3 quickstart.py
+    ```
+    The first time you run the sample, it prompts you to authorize access:
+    If you're not already signed in to your Google Account, sign in when prompted. If you're signed in to multiple accounts, select one account to use for authorization.
+    Click Accept.
+    Your Python application runs and calls the Google Calendar API.
+
+    Authorization information is stored in the file system, so the next time you run the sample code, you aren't prompted for authorization.
 
 ## **5. Integrating Google Calendar API with the Rag Chain App**
 
