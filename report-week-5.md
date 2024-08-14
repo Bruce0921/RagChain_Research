@@ -58,7 +58,7 @@ In order to authenticate and authorize access to the Google Calendar API, the OA
      ```
 2. **Handling the OAuth Flow**:
    - The following code illustrates the initialization and handling of the OAuth flow:
-     ```python
+    ```python
     import datetime
     import os.path
 
@@ -129,7 +129,7 @@ In order to authenticate and authorize access to the Google Calendar API, the OA
 
     if __name__ == "__main__":
     main()
-     ```
+    ```
    - Configure the sample
     Above is an example that you could put in your working directory, create a file named quickstart.py.
     Include the following code in quickstart.py:
