@@ -38,6 +38,7 @@ router = APIRouter()
 @router.get("/items/{item_id}", tags=["items"])
 async def read_item(item_id: str):
     return {"name": "Foo", "item_id": item_id}
+
 ```
 
 #### Pydantic Models
@@ -50,6 +51,7 @@ class Item(BaseModel):
     description: str = None
     price: float
     tax: float = None
+
 ```
 
 #### Dependency Injection
@@ -85,11 +87,13 @@ def read_root():
 @app.get("/items/{item_id}")
 def read_item(item_id: int, q: str = None):
     return {"item_id": item_id, "q": q}
+
 ```
 #### Running the FastAPI Application
 To run your FastAPI application, use Uvicorn as the ASGI server. Execute the following command in your terminal:
 ```bash
 uvicorn main:app --reload  # The `--reload` flag enables auto-reloading for development.
+
 ```
 Visit http://127.0.0.1:8000 in your browser to see your API in action.
 
@@ -115,4 +119,83 @@ def get_db():
 @app.post("/users/", response_model=schemas.User)
 def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
     return crud.create_user(db=db, user=user)
+
 ```
+
+## Advanced Features of FastAPI
+
+### Background Tasks
+FastAPI allows you to define background tasks that are executed after a request has been returned. This is useful for operations like sending emails, processing data asynchronously, or making calls to external APIs without delaying the response to the client.
+
+```python
+from fastapi import BackgroundTasks, FastAPI
+
+app = FastAPI()
+
+def write_log(message: str):
+    with open("log.txt", "a") as file:
+        file.write(message)
+
+@app.post("/send-notification/")
+async def send_notification(email: str, background_tasks: BackgroundTasks):
+    background_tasks.add_task(write_log, f"notification sent to {email}")
+    return {"message": "Notification sent in the background"}
+
+```
+
+### Middleware
+Middleware in FastAPI can be used to run some code before each request is processed and after each response is sent. This allows for tasks such as request logging, CORS handling, or security checks.
+```python
+from fastapi import FastAPI
+from starlette.middleware.cors import CORSMiddleware
+
+app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+```
+
+### WebSockets
+FastAPI supports WebSockets out of the box, enabling real-time two-way communication between the client and server. This is ideal for features like chat applications or real-time updates.
+```python
+from fastapi import FastAPI, WebSocket
+
+app = FastAPI()
+
+@app.websocket("/ws")
+async def websocket_endpoint(websocket: WebSocket):
+    await websocket.accept()
+    while True:
+        data = await websocket.receive_text()
+        await websocket.send_text(f"Message text was: {data}")
+
+```
+
+## Security Features
+Authentication
+FastAPI provides several tools to handle authentication securely and easily. Here is how you can implement OAuth2 with Password (and hashing), using JWT tokens for secure transmission of information between parties.
+```python
+from fastapi import Depends, FastAPI, HTTPException, status
+from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
+from jose import JWTError, jwt
+from passlib.context import CryptContext
+
+```
+
+### Real-World Case Studies
+- Case Study: [Company Name]
+- Overview: Description of the company and its business model.
+- Problem: Challenges the company faced before using FastAPI.
+- Solution: How FastAPI was implemented to address these challenges.
+- Results: Benefits and outcomes of adopting FastAPI.
+
+### Future Directions
+Upcoming Features
+What new capabilities are planned for FastAPI?
+Community contributions and how they shape the future of FastAPI.
