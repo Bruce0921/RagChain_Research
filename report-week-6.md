@@ -6,26 +6,26 @@ FastAPI is a contemporary web framework for building APIs with Python 3.7 and la
 
 ### Key Features of FastAPI
 
-#### Fast
-Leveraging Starlette for the web parts and Pydantic for the data handling, FastAPI offers performance that rivals NodeJS and Go thanks to its asynchronous request handling. This makes it an excellent choice for applications that require high throughput and low latency, such as real-time data processing applications.
+### Fast
+- Leveraging Starlette for the web parts and Pydantic for the data handling, FastAPI offers performance that rivals NodeJS and Go thanks to its asynchronous request handling. This makes it an excellent choice for applications that require high throughput and low latency, such as real-time data processing applications.
 
-#### Easy to Use
-FastAPI simplifies the development process by reducing boilerplate code and providing a clean yet powerful API design structure. The framework's design promotes maintainable and modular code, essential for long-term projects and large development teams. FastAPI's detailed error handling further aids in quick debugging and development.
+### Easy to Use
+- FastAPI simplifies the development process by reducing boilerplate code and providing a clean yet powerful API design structure. The framework's design promotes maintainable and modular code, essential for long-term projects and large development teams. FastAPI's detailed error handling further aids in quick debugging and development.
 
-#### Automatic Documentation
-FastAPI's support for OpenAPI and JSON Schema automatically generates detailed documentation for the API. This documentation is interactive, allowing developers to test endpoints directly from their browsers using platforms like Swagger UI and ReDoc, thus simplifying the initial stages of front-end integration.
+### Automatic Documentation
+- FastAPI's support for OpenAPI and JSON Schema automatically generates detailed documentation for the API. This documentation is interactive, allowing developers to test endpoints directly from their browsers using platforms like Swagger UI and ReDoc, thus simplifying the initial stages of front-end integration.
 
-#### Type Hints
-The framework's reliance on Python type hints boosts development speed by catching errors at development time rather than during production. This strong, static typing helps prevent common type errors and improves IDE support with more robust autocompletion, real-time type checks, and refactoring tools.
+### Type Hints
+- The framework's reliance on Python type hints boosts development speed by catching errors at development time rather than during production. This strong, static typing helps prevent common type errors and improves IDE support with more robust autocompletion, real-time type checks, and refactoring tools.
 
-#### Dependency Injection
-Dependency injection in FastAPI is implemented to provide a way to supply external or shared components to a component. This feature supports various configurations and cross-cutting concerns like data access configurations, user authentication, and background tasks management, making the system easier to manage and scale.
+### Dependency Injection
+- Dependency injection in FastAPI is implemented to provide a way to supply external or shared components to a component. This feature supports various configurations and cross-cutting concerns like data access configurations, user authentication, and background tasks management, making the system easier to manage and scale.
 
-#### Security and Authentication
-FastAPI comes with built-in security and authentication features, supporting standards like OAuth2 with password hashing, JWT for secure tokens, and integration of more complex security policies, ensuring robust security mechanisms are easy to implement and manage.
+### Security and Authentication
+- FastAPI comes with built-in security and authentication features, supporting standards like OAuth2 with password hashing, JWT for secure tokens, and integration of more complex security policies, ensuring robust security mechanisms are easy to implement and manage.
 
-#### Extensibility
-The modular nature of FastAPI makes it highly extensible; developers can plug in any ORM, request parsing libraries, or other tools as required. The flexibility here is key to building systems that need to evolve over time with minimal hassle.
+### Extensibility
+- The modular nature of FastAPI makes it highly extensible; developers can plug in any ORM, request parsing libraries, or other tools as required. The flexibility here is key to building systems that need to evolve over time with minimal hassle.
 
 ### Core Components of FastAPI
 
