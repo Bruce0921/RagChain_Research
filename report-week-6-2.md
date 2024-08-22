@@ -134,7 +134,42 @@ final_state = app.invoke({"messages": [HumanMessage(content="what is the weather
 
 print(final_state["messages"][-1].content)
 ```
-# Exploring LangGraph: A Comprehensive Overview
+## Step-by-Step Breakdown
+
+### 1. Initialize the Model and Tools
+- We use **ChatAnthropic** as our LLM (Large Language Model).
+- **Important**: Ensure that the model knows it has these tools available to call. This is done by converting the LangChain tools into the format for OpenAI tool calling using the `.bind_tools()` method.
+- Define the tools you want to use (e.g., a search tool). It is straightforward to create your own tools—refer to the documentation for more details.
+
+### 2. Initialize Graph with State
+- Initialize the graph (`StateGraph`) by passing the state schema (in this case, `MessagesState`).
+- `MessagesState` is a prebuilt state schema that includes one attribute—a list of LangChain `Message` objects—and logic for merging updates from each node into the state.
+
+### 3. Define Graph Nodes
+- There are two main nodes required:
+  - **Agent Node**: Responsible for deciding what (if any) actions to take.
+  - **Tools Node**: Executes actions if the agent decides to take one.
+
+### 4. Define Entry Point and Graph Edges
+- **Entry Point**: Set the entry point for graph execution (agent node).
+- **Graph Edges**: Define one normal and one conditional edge.
+  - **Conditional Edge**: The destination depends on the contents of the graph's state (`MessageState`). The destination is determined by the agent (LLM).
+    - If the agent decides to take action, run tools.
+    - If the agent decides not to take action, finish by responding to the user.
+  - **Normal Edge**: After tools are invoked, the graph should always return to the agent to decide what to do next.
+
+### 5. Compile the Graph
+- Compile the graph into a LangChain `Runnable`, enabling the use of `.invoke()`, `.stream()`, and `.batch()` methods with your inputs.
+- Optionally, pass a checkpointer object for persisting state between graph runs, and enabling memory, human-in-the-loop workflows, time travel, and more. In this example, `MemorySaver` is used—a simple in-memory checkpointer.
+
+### 6. Execute the Graph
+- **Step A**: LangGraph adds the input message to the internal state, then passes the state to the entry point node, "agent."
+- **Step B**: The "agent" node executes, invoking the chat model.
+- **Step C**: The chat model returns an `AIMessage`. LangGraph adds this to the state.
+- **Step D**: The graph cycles through the following steps until there are no more `tool_calls` on the `AIMessage`:
+  - If the `AIMessage` has `tool_calls`, the "tools" node executes.
+  - The "agent" node executes again and returns an `AIMessage`.
+- **Final Step**: Execution progresses to the special `END` value and outputs the final state, resulting in a list of all chat messages as output.
 
 ## 3.3 APIs and Extensibility
 
