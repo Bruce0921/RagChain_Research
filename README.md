@@ -17,4 +17,4 @@
 
 [Week8 Report 8](report-week-8.md)
 
-[Week8 Report 8](report-week-8-2.md)
+[Week8 Report 8-2](report-week-8-2.md)

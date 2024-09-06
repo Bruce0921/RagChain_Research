@@ -25,11 +25,11 @@ This report details the integration of a custom web search feature into a medica
 #### **V. Implementation Steps**
 ```python
 def google_custom_search(query):
-    api_key = "AIzaSyB36kIDp5DrxzedYx38BGJrLJswLJpB4hg" 
-    search_engine_id = "943bbbfb7e98b480f" 
+    api_key = "****" 
+    search_engine_id = "***943b***" 
     
     search_url = "https://www.googleapis.com/customsearch/v1"
-    params = {
+    params = {S
         "key": api_key,
         "cx": search_engine_id,
         "q": query
