@@ -46,7 +46,3 @@ The increasing complexity of medical queries and the necessity for rapid access 
 
 #### **VIII. Conclusion**
 Integrating LLMs into the RagChain app promises substantial improvements in how medical information is processed and delivered to users. This advancement is expected to enhance clinical decision-making and patient engagement, leading to better health outcomes.
-
-#### **IX. Appendices**
-- **API Documentation**
-- **Glossary of Terms**
