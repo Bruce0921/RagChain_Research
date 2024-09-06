@@ -13,4 +13,8 @@
 
 [Week5 Report 6](report-week-6.md)
 
-[Week5 Report 6-2](report-week-6-2.md)
+[Week6 Report 6-2](report-week-6-2.md)
+
+[Week8 Report 8](report-week-8.md)
+
+[Week8 Report 8](report-week-8-2.md)
